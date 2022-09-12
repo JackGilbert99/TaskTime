@@ -13,7 +13,7 @@ export class ItemsController {
       let form = window.event.target
       let formData = getFormData(form)
       formData.orderId = orderId
-      console.log('does this look okay?', formData);
+      console.log(formData);
       itemsService.createItem(formData)
       form.reset()
     } catch (error) {
