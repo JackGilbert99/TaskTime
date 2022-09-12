@@ -1,7 +1,6 @@
-import { appState } from "../AppState.js";
 import { itemsService } from "../Services/ItemsService.js";
 import { getFormData } from "../Utils/FormHandler.js";
-import { setHTML } from "../Utils/Writer.js";
+
 
 export class ItemsController {
 
