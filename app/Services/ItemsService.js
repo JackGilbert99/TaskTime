@@ -3,6 +3,8 @@ import { Item } from "../Models/Item.js"
 import { saveState } from "../Utils/Store.js"
 
 class ItemsService {
+
+  // NOTE this is the logic for actually performing the delete
   removeItem(id) {
     let leftovers = appState.items.filter(item => item.id !== id)
     appState.items = leftovers
@@ -14,7 +16,15 @@ class ItemsService {
     console.log(appState.items);
     saveState('items', appState.items)
   }
-
+  toggleShellfishAllergy(id) {
+    let item = appState.items.find(item => item.id == id)
+    if (!item) {
+      throw new Error('Bad ID')
+    }
+    item.shellfishAllergy = !item.shellfishAllergy
+    appState.emit('items')
+    saveState('items', appState.items)
+  }
 }
 
 export const itemsService = new ItemsService()

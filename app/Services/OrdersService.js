@@ -2,6 +2,7 @@ import { appState } from "../AppState.js"
 import { Order } from "../Models/Order.js"
 import { saveState } from "../Utils/Store.js"
 
+
 class OrdersService {
   toggleShellfishAllergy(id) {
     let order = appState.orders.find(order => order.id == id)
@@ -16,6 +17,11 @@ class OrdersService {
     let order = new Order(formData)
     appState.orders = [order, ...appState.orders]
     console.log(appState.orders);
+    saveState('orders', appState.orders)
+  }
+  removeOrder(id) {
+    let leftovers = appState.orders.filter(order => order.id !== id)
+    appState.orders = leftovers
     saveState('orders', appState.orders)
   }
 

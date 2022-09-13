@@ -6,13 +6,15 @@ export class Order {
     this.id = data.id || generateId()
     this.name = data.name
     this.type = data.type
-
+    this.shellfishAllergy = data.shellfishAllergy || false
   }
 
+
+  // TODO need to add a button for handling deleting a list
   get Template() {
     return /*html*/`
     <div class="col-12 col-md-6">
-      <div class="bg-light order-card rounded elevation-1 m-lg-3 m-1 px-lg-5 p-3">
+      <div class="bg-light order-card rounded elevation-1 m-lg-3 m-1 px-lg-5 p-3" form="color">
         <div class="d-flex justify-content-between">
           <h4>Tasks:</h4>
           <h4>
@@ -52,7 +54,10 @@ export class Order {
           <h5>Items: ${this.Items.length}</h5>
           <h2>Total: $${this.OrderTotal}</h5>
         </div>
+        <div onclick="app.ordersController.removeOrder('${this.id}')" title="Remove Order"  class="mdi mdi-axe fs-1"></div>
+      
       </div>
+
     </div>
     `
   }
@@ -63,6 +68,8 @@ export class Order {
     this.Items.forEach(item => template += item.Template)
     return template
   }
+
+  // NOTE this function is what 'gets' all of the tasks(items) for this list(order)
 
   get Items() {
     let items = appState.items.filter(item => item.orderId == this.id)

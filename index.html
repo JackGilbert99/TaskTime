@@ -29,14 +29,16 @@
         <div class="row g-2">
           <div class="col-md">
             <div class="form-floating text-dark">
-              <input type="text" class="form-control" name="name" required placeholder="Customer Name">
+              <input type="text" class="form-control" name="name" required placeholder="Customer Name" minlength="3"
+                maxlength="15">
               <label for="name">Task Name</label>
             </div>
           </div>
           <div class="col-md">
             <div class="form-floating text-dark">
+              <!-- TODO change this input to a color picker... make sure to put the name on it -->
               <select class="form-select" name="type">
-                <option selected value="Delivery">Red</option>
+                <option id="form-color" type="color" value="Red">Red</option>
                 <option value="Dine In">Blue</option>
                 <option value="Curbside">Yellow</option>
               </select>

@@ -21,9 +21,13 @@ export class ItemsController {
     }
   }
 
+  // NOTE this is the function we are calling when trying to delete an item... notice the parameters
   removeItem(id) {
     if (window.confirm('Do you want to remove this item?')) {
       itemsService.removeItem(id)
     }
+  }
+  toggleShellfishAllergy(id) {
+    itemsService.toggleShellfishAllergy(id)
   }
 }

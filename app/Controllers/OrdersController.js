@@ -34,4 +34,9 @@ export class OrdersController {
   toggleShellfishAllergy(id) {
     ordersService.toggleShellfishAllergy(id)
   }
+  removeOrder(id) {
+    if (window.confirm('Do you want to remove this item?')) {
+      ordersService.removeOrder(id)
+    }
+  }
 }
