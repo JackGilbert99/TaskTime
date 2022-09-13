@@ -23,7 +23,7 @@ export class Order {
           </h4>
         </div>
         <div class="d-flex justify-content-between mb-2">
-          <h5>Order Number:</h5>
+          <h5>Order:</h5>
           <h5>${this.type}</h5>
         </div>
         <div class="d-flex mb-2">
