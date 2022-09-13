@@ -4,7 +4,6 @@ import { saveState } from "../Utils/Store.js"
 
 class ItemsService {
 
-  // NOTE this is the logic for actually performing the delete
   removeItem(id) {
     let leftovers = appState.items.filter(item => item.id !== id)
     appState.items = leftovers
